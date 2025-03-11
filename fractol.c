@@ -6,7 +6,7 @@
 /*   By: abidaux <abidaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 18:51:29 by abidaux           #+#    #+#             */
-/*   Updated: 2025/03/10 19:54:33 by abidaux          ###   ########.fr       */
+/*   Updated: 2025/03/11 17:33:47 by abidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ gcc *.c -I ~/my_libs/minilibx/ -L ~/my_libs/minilibx/
 */
 
 #include "fractol.h"
-#include "minilibx-linux/mlx.h"
 
 int	main(int ac, char **av)
 {
