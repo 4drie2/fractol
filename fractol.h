@@ -6,7 +6,7 @@
 /*   By: abidaux <abidaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:05:39 by abidaux           #+#    #+#             */
-/*   Updated: 2025/03/12 18:31:35 by abidaux          ###   ########.fr       */
+/*   Updated: 2025/03/13 22:02:04 by abidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 #include <X11/X.h>
 #include <X11/keysym.h>
 
-#define ERROR_MESSAGE "Please enter \n\t\"./fractol mandelbrot\" or \n\t\"./fractol julia <value_1> <value_2>\"\n"
+#define ERROR_MESSAGE_PART1 "Please enter \n\t\"./fractol mandelbrot\" or \n\""
+#define ERROR_MESSAGE_PART2 "\t./fractol julia <value_1> <value_2>\"\n"
 
 #define WIDH	800
 #define HEIGHT	800
@@ -41,13 +42,13 @@
 #define ELECTRIC_BLUE		0x0CEFFF
 #define LAVA_RED			0xFF1700
 
-typedef struct	s_complex
+typedef struct s_complex
 {
 	double	x;
 	double	y;
 }				t_complex;
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void	*img_ptr;
 	char	*pixel_ptr;
@@ -56,7 +57,7 @@ typedef struct	s_img
 	int		line_len;
 }				t_img;
 
-typedef struct	s_fractal
+typedef struct s_fractal
 {
 	char	*name;
 	void	*mlx_connexion;
@@ -76,10 +77,12 @@ void		putstr_fd(char *s, int fd);
 double		atodbl(char *s);
 void		fractal_init(t_fractal *fractal);
 void		fractal_render(t_fractal *fractal);
-double		map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
+double		map(double unscaled_num, double new_min,
+				double new_max, double old_max);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
 int			key_handler(int keysym, t_fractal *fractal);
 int			close_handler(t_fractal *fractal);
-int			mouse_handler(int button, int x, int y, t_fractal *fractal);
+int			mouse_handler(int button, int x, int y,
+				t_fractal *fractal);
 int			julia_track(int x, int y, t_fractal *fractal);

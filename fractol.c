@@ -6,7 +6,7 @@
 /*   By: abidaux <abidaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 18:51:29 by abidaux           #+#    #+#             */
-/*   Updated: 2025/03/11 17:47:12 by abidaux          ###   ########.fr       */
+/*   Updated: 2025/03/13 21:09:00 by abidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,12 @@ int	main(int ac, char **av)
 		}
 		fractal_init(&fractal);
 		fractal_render(&fractal);
-		mlx_loop(fractal.mlx_connection);
+		mlx_loop(fractal.mlx_connexion);
 	}
 	else
 	{
-		putstr_fd(ERROR_MESSAGE, STDERR_FILENO);
+		putstr_fd(ERROR_MESSAGE_PART1, STDERR_FILENO);
+		putstr_fd(ERROR_MESSAGE_PART2, STDERR_FILENO);
 		exit(EXIT_FAILURE);
 	}
 }

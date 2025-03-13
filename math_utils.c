@@ -1,0 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   math_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abidaux <abidaux@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/13 17:19:15 by abidaux           #+#    #+#             */
+/*   Updated: 2025/03/13 21:11:45 by abidaux          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "fractol.h"
+
+double	map(double unscaled_num, double new_min, double new_max, double old_max)
+{
+	double	old_min;
+	double	denominateur;
+
+	old_min = 0;
+	denominateur = (new_max - new_min) * (unscaled_num - old_min);
+	return (denominateur / (old_max - old_min) + new_min);
+}
+
+t_complex	sum_complex(t_complex z1, t_complex z2)
+{
+	t_complex	result;
+
+	result.x = z1.x + z2.x;
+	result.y = z1.y + z2.y;
+	return (result);
+}
+
+t_complex	square_complex(t_complex z)
+{
+	t_complex	result;
+
+	result.x = (z.x * z.x) - (z.y * z.y);
+	result.y = 2 * z.x * z.y;
+	return (result);
+}

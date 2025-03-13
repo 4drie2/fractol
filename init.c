@@ -6,11 +6,11 @@
 /*   By: abidaux <abidaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:04:50 by abidaux           #+#    #+#             */
-/*   Updated: 2025/03/12 19:20:16 by abidaux          ###   ########.fr       */
+/*   Updated: 2025/03/13 21:16:07 by abidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"fractol.h"
+#include "fractol.h"
 
 static void	malloc_error(void)
 {
@@ -30,25 +30,25 @@ static void	data_init(t_fractal *fractal)
 static void	event_init(t_fractal *fractal)
 {
 	mlx_hook(fractal->mlx_windows,
-			KeyPress,
-			KeyPressMask,
-			key_handler,
-			fractal);
+		KeyPress,
+		KeyPressMask,
+		key_handler,
+		fractal);
 	mlx_hook(fractal->mlx_windows,
-			ButtonPress,
-			ButtonPressMask,
-			mouse_handler,
-			fractal);
+		ButtonPress,
+		ButtonPressMask,
+		mouse_handler,
+		fractal);
 	mlx_hook(fractal->mlx_windows,
-			DestroyNotify,
-			StructureNotifyMask,
-			close_handler,
-			fractal);
+		DestroyNotify,
+		StructureNotifyMask,
+		close_handler,
+		fractal);
 	mlx_hook(fractal->mlx_windows,
-			MotionNotify,
-			PointerMotionMask,
-			julia_track,
-			fractal);
+		MotionNotify,
+		PointerMotionMask,
+		julia_track,
+		fractal);
 }
 
 void	fractal_init(t_fractal *fractal)
