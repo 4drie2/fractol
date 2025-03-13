@@ -6,7 +6,7 @@
 /*   By: abidaux <abidaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 21:10:37 by abidaux           #+#    #+#             */
-/*   Updated: 2025/03/13 21:14:46 by abidaux          ###   ########.fr       */
+/*   Updated: 2025/03/14 00:35:47 by abidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	key_handler(int keysym, t_fractal *fractal)
 	return (0);
 }
 
-int	mouse_handler(int button, int x, int y, t_fractal *fractal)
+int	mouse_handler(int button, t_fractal *fractal)
 {
 	if (button == Button5)
 		fractal->zoom *= 0.95;

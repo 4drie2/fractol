@@ -6,7 +6,7 @@
 /*   By: abidaux <abidaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:05:39 by abidaux           #+#    #+#             */
-/*   Updated: 2025/03/13 22:02:04 by abidaux          ###   ########.fr       */
+/*   Updated: 2025/03/14 00:36:14 by abidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,5 @@ t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
 int			key_handler(int keysym, t_fractal *fractal);
 int			close_handler(t_fractal *fractal);
-int			mouse_handler(int button, int x, int y,
-				t_fractal *fractal);
+int			mouse_handler(int button, t_fractal *fractal);
 int			julia_track(int x, int y, t_fractal *fractal);
