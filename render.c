@@ -6,13 +6,13 @@
 /*   By: abidaux <abidaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 20:08:45 by abidaux           #+#    #+#             */
-/*   Updated: 2025/03/13 21:29:29 by abidaux          ###   ########.fr       */
+/*   Updated: 2025/03/14 15:01:54 by abidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	my_pixel_put(int x, int y, t_img *img, int color)
+static void	modify_pixel_color_buffer_color(int x, int y, t_img *img, int color)
 {
 	int	offset;
 
@@ -51,12 +51,12 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 		if ((z.x * z.x) + (z.y * z.y) > fractal->escape_value)
 		{
 			color = map(i, BLACK, WHITE, fractal->iteration_definition);
-			my_pixel_put(x, y, &fractal->img, color);
+			modify_pixel_color_buffer_color(x, y, &fractal->img, color);
 			return ;
 		}
 		++i;
 	}
-	my_pixel_put(x, y, &fractal->img, WHITE);
+	modify_pixel_color_buffer_color(x, y, &fractal->img, WHITE);
 }
 
 void	fractal_render(t_fractal *fractal)
@@ -72,7 +72,7 @@ void	fractal_render(t_fractal *fractal)
 			handle_pixel(x, y, fractal);
 	}
 	mlx_put_image_to_window(fractal->mlx_connexion,
-							fractal->mlx_windows,
-							fractal->img.img_ptr,
-							0, 0);
+		fractal->mlx_windows,
+		fractal->img.img_ptr,
+		0, 0);
 }

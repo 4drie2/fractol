@@ -6,7 +6,7 @@
 /*   By: abidaux <abidaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 21:10:37 by abidaux           #+#    #+#             */
-/*   Updated: 2025/03/14 00:57:02 by abidaux          ###   ########.fr       */
+/*   Updated: 2025/03/14 14:07:11 by abidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,15 @@ int	key_handler(int keysym, t_fractal *fractal)
 		fractal->shift_y += (0.5 * fractal->zoom);
 	else if (keysym == XK_Down)
 		fractal->shift_y -= (0.5 * fractal->zoom);
-	else if (keysym == XK_plus)
+	else if (keysym == XK_plus || keysym == XK_equal)
 		fractal->iteration_definition += 10;
-	else if (keysym == XK_minus)
+	else if (keysym == XK_minus && fractal->iteration_definition > 10)
 		fractal->iteration_definition -= 10;
 	fractal_render(fractal);
 	return (0);
 }
 
-int mouse_handler(int button, int x, int y, t_fractal *fractal)
+int	mouse_handler(int button, int x, int y, t_fractal *fractal)
 {
 	(void)x;
 	(void)y;
@@ -55,6 +55,8 @@ int mouse_handler(int button, int x, int y, t_fractal *fractal)
 
 int	julia_track(int x, int y, t_fractal *fractal)
 {
+	(void)x;
+	(void)y;
 	if (!ft_strncmp(fractal->name, "julia", 5))
 	{
 		fractal->julia_x = (map(x, -2, +2, WIDH) * fractal->zoom);

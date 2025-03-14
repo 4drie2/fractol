@@ -6,7 +6,7 @@
 /*   By: abidaux <abidaux@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 21:29:52 by abidaux           #+#    #+#             */
-/*   Updated: 2025/03/14 00:33:57 by abidaux          ###   ########.fr       */
+/*   Updated: 2025/03/14 15:01:43 by abidaux          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ double	atodbl(char *s)
 	pow = 1;
 	while ((*s >= 9 && *s <= 13) || *s == ' ')
 		++s;
-	while ( *s == '+' || *s == '-')
+	while (*s == '+' || *s == '-')
 		if (*s++ == '-')
 			sign = -sign;
 	while (*s != '.' && *s)
@@ -58,9 +58,8 @@ double	atodbl(char *s)
 		++s;
 	while (*s)
 	{
-		pow /=10;
+		pow /= 10;
 		fractional_part = fractional_part + (*s++ - 48) * pow;
 	}
 	return ((integer_part + fractional_part) * sign);
 }
-
